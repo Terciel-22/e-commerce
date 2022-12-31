@@ -4,7 +4,7 @@ import { faShoppingBag, faCartShopping } from "@fortawesome/free-solid-svg-icons
 function Navbar(props){
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="container-fluid">
+            <div className="container">
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -32,7 +32,7 @@ function Navbar(props){
                         <li className="nav-item">
                             <a className="nav-link" href="#cart">
                                 <FontAwesomeIcon icon={faCartShopping} className="me-2"/>
-                                Cart <span className="badge rounded-pill text-bg-danger">02</span>
+                                Cart <span className="badge rounded-pill text-bg-danger py-1 px-1">02</span>
                             </a>
                         </li>
                         <li className="nav-item dropdown">

@@ -1,10 +1,11 @@
 import Navbar from "./Navbar";
+import Content from "./Content";
 
 function App() {
     return (
         <>
             <Navbar appName="Terciel" />
-            <div className="bg-dark text-white">Hello World</div>
+            <Content />
         </>
     );
 }
