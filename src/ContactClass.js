@@ -18,16 +18,24 @@ class Contact extends Component
 
     handleClick(event){
         event.preventDefault();
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'text/plain',
-            },
-            body: JSON.stringify(this.state),
-        }
+		// Options to be given as parameter
+		// in fetch for making requests
+		// other then GET
+		let options = {
+			method: 'POST',
+			headers: {
+				'Content-Type':
+				'application/json;charset=utf-8'
+			},
+			body: JSON.stringify(this.state)
+		}
+		// Fake api for making post requests
+		let fetchRes = fetch("http://dummy.restapiexample.com/api/v1/create",options);
+		fetchRes.then(res =>
+        res.json()).then(d => {
+            console.log(d)
+        })
 
-        fetch('http://localhost:8000/message.php', options)
-            .then((response)=>response.text);
     }
 
     handleChange(event){

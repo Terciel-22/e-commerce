@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Rating from "./RatingClass";
 
 class Product extends Component{
     // eslint-disable-next-line no-useless-constructor
@@ -9,18 +10,12 @@ class Product extends Component{
     render(){
         return(
             <>
-                <div className="card p-2 m-2">
-                    <img className="card-img-top img-thumbnail rounded img-fluid" src={this.props.imageURL} alt={this.props.name} />
-                    <hr />
-                    <div className="card-body">
-                        <h6>Name:</h6>
-                        <p className="card-text">{this.props.name}</p>
-                        <h6>Description:</h6>
-                        <p className="card-text">{this.props.description}</p>
-                        <h6>Price:</h6>
-                        <p className="card-text">₱{this.props.price}</p>
-                        <button className="btn btn-primary">Add to cart</button>
-                    </div>
+                <div className="product text-center col-lg-3 col-md-4 col-12">
+                    <img className="img-fluid mb-3" src={this.props.imageURL} alt={this.props.name}/>
+                    <Rating rating={this.props.rating} />
+                    <h5>{this.props.name}</h5>
+                    <h4>${this.props.price}</h4>
+                    <button className="buy-btn">Add to cart</button>
                 </div>
             </>
         );
