@@ -12,10 +12,13 @@ function Footer(){
                 <div className="footer-one col-lg-3 col-md-6 col-12 mb-3">
                     <h5 className="pb-2">Featured</h5>
                     <ul className="text-uppercase list-unstyled">
-                        <li><a href="#phone">Phones</a></li>
-                        <li><a href="#tablet">Tablets</a></li>
-                        <li><a href="#laptop">Laptops</a></li>
-                        <li><a href="#computer">Computers</a></li>
+                        <li><a href="#phone">Smartphones</a></li>
+                        <li><a href="#tablet">Laptops</a></li>
+                        <li><a href="#laptop">Fragrances</a></li>
+                        <li><a href="#computer">Skincare</a></li>
+                        <li><a href="#home-decoration">Home Decoration</a></li>
+                        <li><a href="#dresses-and-shirt">Dresses & Shirt</a></li>
+                        <li><a href="#others">Others</a></li>
                     </ul>
                 </div>
                 <div className="footer-one col-lg-3 col-md-6 col-12 mb-3">

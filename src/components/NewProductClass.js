@@ -13,23 +13,23 @@ class NewProduct extends Component{
                 <section id="new" className="w-100">
                     <div className="row p-0 m-0">
                         <div className="one col-lg-4 col-md-12 col-12 p-0">
-                            <img className="img-fluid" src="https://kevajo.com/inc/uploads/2020/02/Apple-iPhone-X-64-Go-Argent-3.jpg" alt="iPhone X"/>
+                            <img className="img-fluid" src="https://raw.githubusercontent.com/tech2etc/Build-Ecommerce-Website-With-HTML-CSS-JavaScript/main/img/new/1.jpg" alt="Shoes"/>
                             <div className="details">
-                                <h2>iPhone X</h2>
+                                <h2>Extreme Rare Sneakers</h2>
                                 <button className="text-upper-case">Shop Now</button>
                             </div>
                         </div>
                         <div className="one col-lg-4 col-md-12 col-12 p-0">
-                            <img className="img-fluid" src="https://m.media-amazon.com/images/I/71JUNVmHWBL._SL1500_.jpg" alt="OPPO F19"/>
+                            <img className="img-fluid" src="https://raw.githubusercontent.com/tech2etc/Build-Ecommerce-Website-With-HTML-CSS-JavaScript/main/img/new/5.jpg" alt="Jewelry"/>
                             <div className="details">
-                                <h2>OPPO F19</h2>
+                                <h2>Awesome Blank Outfit</h2>
                                 <button className="text-upper-case">Shop Now</button>
                             </div>
                         </div>
                         <div className="one col-lg-4 col-md-12 col-12 p-0">
-                            <img className="img-fluid" src="https://techpilipinas.com/wp-content/uploads/2019/05/apsp-huawei-p30-price-600x600.jpg" alt="Huawei P30"/>
+                            <img className="img-fluid" src="https://raw.githubusercontent.com/tech2etc/Build-Ecommerce-Website-With-HTML-CSS-JavaScript/main/img/new/3.jpg" alt="Wrist Watch"/>
                             <div className="details">
-                                <h2>Huawei P30</h2>
+                                <h2>Sport Wear Up To 50% Off</h2>
                                 <button className="text-upper-case">Shop Now</button>
                             </div>
                         </div>

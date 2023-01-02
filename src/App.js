@@ -1,11 +1,12 @@
-import Navbar from "./Navbar";
-import Header from "./Header";
-import Brand from "./BrandClass";
-import NewProduct from "./NewProductClass";
-import FeaturedProducts from "./FeaturedProducts";
-import Banner from "./Banner";
-// import Content from "./ContentClass";
-import Footer from "./Footer";
+import Navbar from "./components/Navbar";
+import Header from "./components/Header";
+import Brand from "./components/BrandClass";
+import NewProduct from "./components/NewProductClass";
+import FeaturedProducts from "./components/FeaturedProducts";
+import Banner from "./components/Banner";
+import Categories from "./components/Categories";
+import Contact from "./components/ContactClass";
+import Footer from "./components/Footer";
 
 function App() {
     return (
@@ -16,7 +17,8 @@ function App() {
             <NewProduct />
             <FeaturedProducts />
             <Banner />
-            {/* <Content /> */}
+            <Categories />
+            <Contact />
             <Footer />
         </>
     );

@@ -1,16 +1,7 @@
 import { Component } from "react";
-import PropTypes from "prop-types";
-import Product from "./ProductClass"
+import ProductList from "../Product/ProductList";
 
-class BestSeller extends Component{
-    
-    static defaultProps = {
-        name: ""
-    }
-    
-    static propTypes = {
-        name: PropTypes.string
-    }
+class HomeDecorations extends Component{
     
     // eslint-disable-next-line no-useless-constructor
     constructor(props) {
@@ -23,7 +14,7 @@ class BestSeller extends Component{
 
     componentDidMount()
     {
-        fetch('https://dummyjson.com/products')
+        fetch("https://dummyjson.com/products/category/home-decoration?limit=4")
             .then(res => res.json())
             .then(res => {
                 this.setState({
@@ -53,23 +44,14 @@ class BestSeller extends Component{
 
             return(
                 <>
-                    <section className="my-5 pb-5">
+                    <section className="my-5">
                         <div className="container text-center mt-5 py-5">
-                            <h3>Our Best Seller</h3>
+                            <h3>Home Decorations</h3>
                             <hr className="mx-auto"/>
-                            <p>Here you can check out best sold products as of 2022.</p>
+                            <p>Check out available home decoration here.</p>
                         </div>
                         <div className="row mx-auto container">
-                            {products.map( product => 
-                                <Product 
-                                    key={product.id} 
-                                    name={product.title} 
-                                    description={product.description} 
-                                    price={product.price} 
-                                    imageURL={product.thumbnail} 
-                                    rating={product.rating}
-                                />
-                            )}
+                            <ProductList products={products}/>
                         </div>
                     </section>
                 </>
@@ -78,4 +60,4 @@ class BestSeller extends Component{
     }
 }
 
-export default BestSeller; 
+export default HomeDecorations; 

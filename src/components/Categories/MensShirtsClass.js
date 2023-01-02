@@ -1,7 +1,8 @@
 import { Component } from "react";
-import Product from "./ProductClass";
+import ProductList from "../Product/ProductList";
 
-class FeaturedProducts extends Component{
+class MensShirts extends Component{
+    
     // eslint-disable-next-line no-useless-constructor
     constructor(props) {
         super(props);
@@ -13,7 +14,7 @@ class FeaturedProducts extends Component{
 
     componentDidMount()
     {
-        fetch("https://dummyjson.com/products?limit=8&skip=1&select=title,price,rating,images")
+        fetch("https://dummyjson.com/products/category/mens-shirts?limit=4")
             .then(res => res.json())
             .then(res => {
                 this.setState({
@@ -23,8 +24,7 @@ class FeaturedProducts extends Component{
             });
     }
 
-    render()
-    {
+    render(){
         let { isLoaded, products } = this.state;
         if(!isLoaded){
             return (
@@ -40,32 +40,24 @@ class FeaturedProducts extends Component{
                     </div>
                 </>
             );
-        } else 
-        {
-            return (
+        } else {
+
+            return(
                 <>
-                    <section className="my-5 pb-5">
+                    <section className="my-5">
                         <div className="container text-center mt-5 py-5">
-                            <h3>Our Featured</h3>
+                            <h3>Best Men's Shirts</h3>
                             <hr className="mx-auto"/>
-                            <p>Here you can check our new product with fair price.</p>
+                            <p>Here you can check out men's shirts.</p>
                         </div>
                         <div className="row mx-auto container">
-                            {products.map( product => 
-                                <Product 
-                                    key={product.id} 
-                                    name={product.title} 
-                                    description={product.description} 
-                                    price={product.price} 
-                                    imageURL={product.images[0]} 
-                                    rating={product.rating}
-                                />
-                            )}
+                            <ProductList products={products}/>
                         </div>
                     </section>
                 </>
             );
         }
-    };
+    }
 }
-export default FeaturedProducts;
+
+export default MensShirts; 
