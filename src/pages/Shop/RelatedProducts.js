@@ -23,6 +23,20 @@ class ShopProducts extends Component{
             });
     }
 
+    componentDidUpdate(prevProps)
+    {
+        if (prevProps.category !== this.props.category) {
+            fetch(`https://dummyjson.com/products/category/${this.props.category}`)
+                .then(res => res.json())
+                .then(res => {
+                    this.setState({
+                        isLoaded: true,
+                        products:res.products,
+                    });
+                });
+        }
+    }
+    
     setNewImageUrl(url)
     {
         this.setState({
