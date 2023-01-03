@@ -1,7 +1,7 @@
 import { Component } from "react";
-import ProductList from "./Product/ProductList";
+import ProductList from "../../components/Product/ProductList";
 
-class FeaturedProducts extends Component{
+class ShopProducts extends Component{
     // eslint-disable-next-line no-useless-constructor
     constructor(props) {
         super(props);
@@ -13,18 +13,26 @@ class FeaturedProducts extends Component{
 
     componentDidMount()
     {
-        fetch("https://dummyjson.com/products?limit=12")
+        fetch(`https://dummyjson.com/products/category/${this.props.category}`)
             .then(res => res.json())
             .then(res => {
                 this.setState({
                     isLoaded: true,
-                    products: res.products,
+                    products:res.products,
                 });
             });
     }
 
+    setNewImageUrl(url)
+    {
+        this.setState({
+            imageURL: url
+        });
+    }
+
     render()
     {
+
         let { isLoaded, products } = this.state;
         if(!isLoaded){
             return (
@@ -44,14 +52,17 @@ class FeaturedProducts extends Component{
         {
             return (
                 <>
-                    <section className="my-5 pb-5">
-                        <div className="container text-center mt-5 py-5">
-                            <h3>Our Featured</h3>
-                            <hr className="mx-auto"/>
-                            <p>Here you can check our new product with fair price.</p>
+                    <section className="py-5 my-5">
+                        <div className="container mt-5">
+                            <h2 className="font-weight-bold">Related Product</h2>
+                            <hr />
+                            <p>Check this items on the same category.</p>
                         </div>
                         <div className="row mx-auto container">
-                            <ProductList products={products}/>
+                            <ProductList 
+                                products={products} 
+                                setSelectedProduct={this.props.setSelectedProduct}
+                            />
                         </div>
                     </section>
                 </>
@@ -59,4 +70,4 @@ class FeaturedProducts extends Component{
         }
     };
 }
-export default FeaturedProducts;
+export default ShopProducts;

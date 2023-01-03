@@ -1,16 +1,17 @@
 import Product from "./Product";
 
-export default function ProductList({products}) {
+export default function ProductList({products, setSelectedProduct}) {
+    ProductList.defaultProps = {
+        products: {},
+        setSelectedProduct: ()=>{}
+    }
     return(
         <>
-            {products.map( product => 
+            {products.map( (product,index) => 
                 <Product 
-                    key={product.id} 
-                    name={product.title} 
-                    description={product.description} 
-                    price={product.price} 
-                    imageURL={product.images[0]} 
-                    rating={product.rating}
+                    key = {index}
+                    product = {product}
+                    setSelectedProduct={setSelectedProduct}
                 />
             )}
         </>

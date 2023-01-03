@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
-import Shop from "./components/Page_Shop/ShopClass";
+import App from "./pages/Home/App";
+import Shop from "./pages/Shop/Shop";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
-import "./index.css";
+import "./assets/index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 

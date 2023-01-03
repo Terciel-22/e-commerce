@@ -21,7 +21,7 @@ h3 {
     font-weight: 800;
 }
 h4 {
-    font-size: 2.1rem;
+    font-size: 1.1rem;
     font-weight: 600;
 }
 h5 {
@@ -207,6 +207,8 @@ hr {
 }
 .star-container .star {
     font-size: 0.8rem;
+}
+.star-container .star.filled{
     color: goldenrod;
 }
 .product {
@@ -227,6 +229,7 @@ hr {
     opacity: 0;
     transition: 0.3s all;
 }
+
 .product:hover .buy-btn{
     transform: translateY(0);
     opacity: 1;
@@ -325,4 +328,37 @@ hr {
 }
 .pagination button{
     color: #000;
+}
+
+/* Selected Product */
+#selected-product > div > div > img {
+    height: 50vh;
+}
+.small-img-group {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.5rem;
+}
+.small-img-group .small-img-col {
+    flex-basis: 24%;
+    cursor: pointer;
+
+}
+.small-img-group .small-img-col img {
+    height: 15vh;
+}
+#selected-product > div > div:nth-child(2) > button {
+    background-color: #fb774b;
+    opacity: 1;
+    transition: 0.3s all;
+}
+#selected-product > div > div:nth-child(2) > input[type=number] {
+    width: 50px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+#selected-product > div > div:nth-child(2) > input[type=number]:focus {
+    outline: none;
 }

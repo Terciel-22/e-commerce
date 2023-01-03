@@ -1,6 +1,8 @@
 import { Component } from "react";
-import ProductList from "../Product/ProductList";
+import ProductList from "../../components/Product/ProductList";
 import Pagination from "./Pagination";
+import SelectedProduct from "./SelectedProduct";
+import RelatedProducts from "./RelatedProducts";
 
 class ShopProducts extends Component{
     // eslint-disable-next-line no-useless-constructor
@@ -11,13 +13,15 @@ class ShopProducts extends Component{
             products: [],
             currentPage: 1,
             postPerPage: 8,
+            selectedProduct: {}
         }
         this.setCurrentPage = this.setCurrentPage.bind(this);
+        this.setSelectedProduct = this.setSelectedProduct.bind(this);
     }
 
     componentDidMount()
     {
-        fetch("https://dummyjson.com/products?limit=100&skip=1")
+        fetch("https://dummyjson.com/products?limit=100")
             .then(res => res.json())
             .then(res => {
                 this.setState({
@@ -30,14 +34,31 @@ class ShopProducts extends Component{
     setCurrentPage(page)
     {
         this.setState({
-            currentPage: page
+            currentPage: page,
+            selectedProduct: {}
+        });
+        window.scrollTo(0, 0)
+    }
+
+    setSelectedProduct(obj)
+    {
+        this.setState({
+            selectedProduct: obj
+        });
+        window.scrollTo(0, 0)
+    }
+
+    setNewImageUrl(url)
+    {
+        this.setState({
+            imageURL: url
         });
     }
 
     render()
     {
 
-        let { isLoaded, products, currentPage, postPerPage } = this.state;
+        let { isLoaded, products, currentPage, postPerPage, selectedProduct } = this.state;
         if(!isLoaded){
             return (
                 <>
@@ -57,16 +78,34 @@ class ShopProducts extends Component{
             const lastPostIndex = currentPage * postPerPage;
             const firstPostIndex = lastPostIndex - postPerPage;
             const currentPosts = products.slice(firstPostIndex,lastPostIndex);
+            let productSelector = ""
+            if(Object.keys(selectedProduct).length !== 0)
+            {
+                productSelector = (
+                <>
+                    <SelectedProduct selectedProduct={selectedProduct} />
+                    <RelatedProducts category={selectedProduct.category} setSelectedProduct={this.setSelectedProduct}/>
+                </>
+                );
+
+            } else {
+                productSelector = "";
+            }
+            
             return (
                 <>
-                    <section className="my-5 py-5">
+                    {productSelector}
+                    <section className="">
                         <div className="container mt-5 py-5">
                             <h2 className="font-weight-bold">Our Products</h2>
                             <hr />
                             <p>Here you can check our new product with fair price.</p>
                         </div>
                         <div className="row mx-auto container">
-                            <ProductList products={currentPosts} />
+                            <ProductList 
+                                products={currentPosts} 
+                                setSelectedProduct={this.setSelectedProduct}
+                            />
                             <Pagination
                                 totalPost={products.length} 
                                 postPerPage={postPerPage} 

@@ -9,14 +9,18 @@ class Rating extends Component{
     }
 
     render(){
+        const MAX_RATING = 5;
+        const rating = Math.round(this.props.rating);
+        const emptyStar = MAX_RATING - rating;
         return(
             <>
                 <div className="star-container">
-                    <FontAwesomeIcon icon={faStar} className="star"/> 
-                    <FontAwesomeIcon icon={faStar} className="star"/> 
-                    <FontAwesomeIcon icon={faStar} className="star"/> 
-                    <FontAwesomeIcon icon={faStar} className="star"/> 
-                    <FontAwesomeIcon icon={faStar} className="star"/> 
+                    {new Array(rating).fill(null).map((e,index) => ( 
+                        <FontAwesomeIcon key={index} icon={faStar} className="star filled"/>
+                    ))}
+                    {new Array(emptyStar).fill(null).map((e,index) => ( 
+                        <FontAwesomeIcon key={index} icon={faStar} className="star"/>
+                    ))}
                 </div>
             </>
         );

@@ -15,7 +15,7 @@ function Pagination({totalPost, postPerPage, setCurrentPage, currentPage}){
                 {pages.map((page, index) => {
                     return (
                         <li key={index} className={page === currentPage ? "page-item active" : "page-item"}>
-                            <button className="page-link" onClick={()=>setCurrentPage(page)}>{page}</button>
+                            <button className="page-link shadow-none" onClick={()=>setCurrentPage(page)}>{page}</button>
                         </li>
                     );
                 })}
