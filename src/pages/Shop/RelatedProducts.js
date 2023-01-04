@@ -36,7 +36,11 @@ class ShopProducts extends Component{
                 });
         }
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 98cd397d22b7ef2fb70b069542eb6fbff8d90354
     setNewImageUrl(url)
     {
         this.setState({
