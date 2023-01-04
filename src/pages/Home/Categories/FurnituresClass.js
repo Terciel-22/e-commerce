@@ -1,5 +1,5 @@
 import { Component } from "react";
-import ProductList from "../Product/ProductList";
+import ProductList from "../../../components/Product/ProductList";
 
 class Furnitures extends Component{
     

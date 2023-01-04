@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./pages/Home/App";
 import Shop from "./pages/Shop/Shop";
+import Blog from "./pages/Blog/Blog";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 import "./assets/index.css";
@@ -15,6 +16,7 @@ root.render(
             <Routes>
                 <Route path="/" element={ <App /> } />
                 <Route path="/shop" element={ <Shop /> } />
+                <Route path="/blog" element={ <Blog /> } />
             </Routes>
         </BrowserRouter>
     </React.StrictMode>

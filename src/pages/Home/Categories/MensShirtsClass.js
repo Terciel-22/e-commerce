@@ -1,7 +1,7 @@
 import { Component } from "react";
-import ProductList from "../Product/ProductList";
+import ProductList from "../../../components/Product/ProductList";
 
-class HomeDecorations extends Component{
+class MensShirts extends Component{
     
     // eslint-disable-next-line no-useless-constructor
     constructor(props) {
@@ -14,7 +14,7 @@ class HomeDecorations extends Component{
 
     componentDidMount()
     {
-        fetch("https://dummyjson.com/products/category/home-decoration?limit=4")
+        fetch("https://dummyjson.com/products/category/mens-shirts?limit=4")
             .then(res => res.json())
             .then(res => {
                 this.setState({
@@ -46,9 +46,9 @@ class HomeDecorations extends Component{
                 <>
                     <section className="my-5">
                         <div className="container text-center mt-5 py-5">
-                            <h3>Home Decorations</h3>
+                            <h3>Best Men's Shirts</h3>
                             <hr className="mx-auto"/>
-                            <p>Check out available home decoration here.</p>
+                            <p>Here you can check out men's shirts.</p>
                         </div>
                         <div className="row mx-auto container">
                             <ProductList products={products}/>
@@ -60,4 +60,4 @@ class HomeDecorations extends Component{
     }
 }
 
-export default HomeDecorations; 
+export default MensShirts; 

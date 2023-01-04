@@ -1,11 +1,11 @@
 import Navbar from "../../components/Navbar";
-import Header from "../../components/Header";
-import Brand from "../../components/BrandClass";
-import NewProduct from "../../components/NewProductClass";
-import FeaturedProducts from "../../components/FeaturedProducts";
-import Banner from "../../components/Banner";
-import Categories from "../../components/Categories";
-import Contact from "../../components/ContactClass";
+import Header from "./Header";
+import Brand from "./BrandClass";
+import NewProduct from "./NewProductClass";
+import FeaturedProducts from "./FeaturedProducts";
+import Banner from "./Banner";
+import Categories from "./Categories";
+import Contact from "./ContactClass";
 import Footer from "../../components/Footer";
 
 function App() {

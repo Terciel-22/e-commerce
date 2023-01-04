@@ -362,3 +362,23 @@ hr {
 #selected-product > div > div:nth-child(2) > input[type=number]:focus {
     outline: none;
 }
+
+/* BLOG PAGE */
+#blog-container .post .post-img{
+    cursor: pointer;
+}
+#blog-container .post:hover img{
+    opacity: 0.8;
+}
+#blog-container .post img{
+    height: 40vh;
+    width: 40vh;
+    transition: 0.3s ease;
+}
+#blog-container .post:hover h3{
+    color: #fb774b;
+}
+#blog-container .post h3{
+    cursor: pointer;
+    transition: 0.3s ease;
+}
