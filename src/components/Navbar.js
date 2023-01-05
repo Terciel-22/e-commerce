@@ -33,7 +33,11 @@ function Navbar(props){
                             </li>
                             <li className="nav-item">
                                 <FontAwesomeIcon icon={faSearch} className="nav-icon"/>
-                                <FontAwesomeIcon icon={faCartShopping} className="nav-icon"/>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/cart">
+                                    <FontAwesomeIcon icon={faCartShopping} className="nav-icon"/>
+                                </NavLink>
                             </li>
                         </ul>
                 </div>

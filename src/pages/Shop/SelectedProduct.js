@@ -67,7 +67,7 @@ class SelectedProduct extends Component {
                     <div className="col-lg-6 col-md-12 col-12">
                         <h6 className="text-uppercase">{this.props.selectedProduct.category} / {this.props.selectedProduct.brand}</h6>
                         <h3 className="py-4">{this.props.selectedProduct.title}</h3>
-                        <h2>${this.props.selectedProduct.price}.00</h2>
+                        <h2>${this.props.selectedProduct.price}</h2>
                         <Rating rating={this.props.selectedProduct.rating} />
                         <input type="number" value={this.state.quantity} onChange={this.handleChange}/>
                         <Buttons />

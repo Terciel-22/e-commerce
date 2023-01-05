@@ -9,8 +9,8 @@ class Contact extends Component
             firstName: '',
             lastName: '',
             email: '',
-            content: '',
-            addMessage: true
+            message: '',
+            serverMessage: ''
         }
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -29,11 +29,17 @@ class Contact extends Component
 			},
 			body: JSON.stringify(this.state)
 		}
-		// Fake api for making post requests
-		let fetchRes = fetch("http://dummy.restapiexample.com/api/v1/create",options);
+
+		let fetchRes = fetch("http://localhost:8000/message",options);
 		fetchRes.then(res =>
-        res.json()).then(d => {
-            console.log(d)
+        res.json()).then(data => {
+            this.setState({
+                firstName: '',
+                lastName: '',
+                email: '',
+                message: '',
+                serverMessage: data,
+            });
         })
 
     }
@@ -51,24 +57,24 @@ class Contact extends Component
     render(){
         return(
             <section className="my-5 pb-5" id="contact">
-                <div className="container text-center mt-5 py-5">
-                <h2>Contact Us</h2>
+                <div className="container mt-5 py-5">
+                <h2 className="text-center">Contact Us</h2>
                 <hr className="mx-auto"/>
                 <div className="row mx-auto container">
-                    <div className="col-md-6 p-5">
+                    <div className="col-lg-6 col-md-6 col-sm-12 p-5">
                         <h4 className="mt-5">
                             Need to get in touch with us? Either fill out the form with your inquiry or find the department email you'd like to contact below.
                         </h4>
                     </div>
-                    <div className="col-md-6 p-5">
+                    <div className="col-lg-6 col-md-6 col-sm-12 p-5">
                         <form>
-                            <div id="server-message"></div>
-                            <div className="d-flex mb-3">
-                                <div className="form-group me-2">
+                            <div id="server-message">{this.state.serverMessage}</div>
+                            <div className="row mb-3">
+                                <div className="form-group col-lg-6 col-md-12 col-12">
                                     <label htmlFor="firstName">First name</label>
                                     <input type="text" className="form-control" id="firstName"  name="firstName" onChange={this.handleChange} value={this.state.firstName}/>
                                 </div>
-                                <div className="form-group">
+                                <div className="form-group col-lg-6 col-md-12 col-12">
                                     <label htmlFor="lastName">Last name</label>
                                     <input type="text" className="form-control" id="lastName" name="lastName" onChange={this.handleChange} value={this.state.lastName}/>
                                 </div>
@@ -78,10 +84,10 @@ class Contact extends Component
                                 <input type="email" className="form-control" id="email" name="email" onChange={this.handleChange} value={this.state.email}/>
                             </div>
                             <div className="form-group mb-3">
-                                <label htmlFor="content">What can we help you with?</label>
-                                <textarea type="text" className="form-control" id="content" name="content" rows="5" onChange={this.handleChange} value={this.state.content}/>
+                                <label htmlFor="message">What can we help you with?</label>
+                                <textarea type="text" className="form-control" id="message" name="message" rows="5" onChange={this.handleChange} value={this.state.message}/>
                             </div>
-                            <button className="btn btn-outline-primary" onClick={this.handleClick}>Submit</button>
+                            <button onClick={this.handleClick}>Submit</button>
                         </form>
                     </div>
                 </div>
