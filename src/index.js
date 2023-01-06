@@ -7,6 +7,7 @@ import App from "./pages/Home/App";
 import Shop from "./pages/Shop/Shop";
 import Blog from "./pages/Blog/Blog";
 import Cart from "./pages/Cart/Cart";
+import Account from "./pages/Account/Account";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -20,6 +21,7 @@ root.render(
                 <Route path="/shop" element={ <Shop /> } />
                 <Route path="/blog" element={ <Blog /> } />
                 <Route path="/cart" element={ <Cart />} />
+                <Route path="/register" element={ <Account />} />
             </Routes>
         </BrowserRouter>
     </React.StrictMode>
