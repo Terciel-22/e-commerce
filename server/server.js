@@ -1,6 +1,7 @@
 import Express from "express";
 import cors from "cors";
 import mysql from "mysql";
+import md5 from "md5";
 
 const app = Express();
 
@@ -20,7 +21,7 @@ app.listen(8000,()=>{
 
 
 app.get("/", (req,res)=>{
-    res.json("Potra");
+    res.json("Get data needed in home page");
 });
 
 app.get("/message", (req,res)=>{
@@ -44,3 +45,20 @@ app.post("/message", (req,res)=>{
         else return res.json("Successfully posted!");
     });
 });
+
+app.post(
+    "/signup",
+    (req, res) => {
+        const {signUpUsername,signUpEmail,signUpPassword} = req.body;
+        const q = "INSERT INTO users (`username`,`email`,`password`) VALUES (?)";
+        const values = [
+            signUpUsername,
+            signUpEmail,
+            md5(signUpPassword)
+        ];
+        db.query(q,[values],(err,data)=>{
+            if(err) return res.json(err)
+            else return res.json("Successfully posted!");
+        });
+    },
+);

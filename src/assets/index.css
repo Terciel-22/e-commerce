@@ -465,90 +465,75 @@ hr {
     justify-content: flex-end;
 }
 
-/* LOGIN PAGE */
+/* ACCOUNT PAGE */
 #account-page {
-    max-width: 50vh;
-    margin-top: 10vh;
-    width: 21.88rem;
-    height: 32.5rem;
-    background: red;
-    overflow: hidden;
-    background: url("https://img.freepik.com/free-photo/abstract-textured-backgound_1258-30499.jpg?w=2000") no-repeat center / cover;
-    border-radius: 10px;
-    box-shadow: 5px 20px 50px #000;
+    padding: 3.125rem 0;
 }
-#check {
-    display: none;
-}
-#sign-up {
+#account-page > div > div > div > .form-container {
+    background: #fff;
+    width: 18.75rem;
+    height: 27rem;
     position: relative;
-    width: 100%;
-    height: 100%;
+    text-align: center;
+    padding: 20px 0;
+    margin: auto;
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.1);
+    overflow: hidden;
 }
-#sign-up > form > label,
-#login > form > label
-{
-    color: #333;
-    font-size: 2.31rem;
-    display: flex;
-    justify-content: center;
-    margin: 3.33rem;
+#account-page > div > div > div > .form-container > .form-btn {
+    display: inline-block;
+}
+#account-page > div > div > div > .form-container > .form-btn > span {
     font-weight: bold;
+    padding: 0 10px;
+    color: #555;
     cursor: pointer;
-    transition: .5s ease-in-out;
+    width: 6.25rem;
+    display: inline-block;
 }
-#sign-up > form > input, 
-#login > form > input {
-    box-shadow: none;
-    margin: 1.2rem auto;
-    padding: .9rem;
-    width: 21.87rem;
-}
-
-#sign-up > form > button,
-#login > form > button {
-    width: 60%;
-    height: 3.4rem;
-    margin: 10px auto;
-    display: block;
-    justify-content: center;
-    color: #fff;
-    background: #573b8a;
-    font-size: 1rem;
-    font-weight: bold;
-    margin-top: 1.2rem;
-    outline: none;
+#account-page > div > div > div > .form-container > .form-btn > hr {
+    width: 6.25rem;
     border: none;
-    border-radius: 5px;
-    transition: .2s ease-in;
-    cursor: pointer;
+    background: #ff523b;
+    height: 3px;
+    margin-top: 8px;
+    transform: translateX(6.25rem);
+    transition: transform 1s;
 }
-#login {
-    height: 28.75rem;
-    background: #eee;
-    border-radius: 60% / 10%;
-    transform: translateY(-11.25rem);
-    transition: .8s ease-in-out;
+#account-page > div > div > div > .form-container > form {
+    min-width: 18.75rem;
+    padding: 0 20px;
+    position: absolute;
+    top: 6.13rem;
+    transition: transform 1s;
 }
-#login > form > label {
-    color: #573b85;
-    transform: scale(.6);
+#account-page > div > div > div > .form-container > form > input {
+    width: 100%;
+    height: 2rem;
+    margin: 10px 0;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    box-shadow: none;
 }
-#check:checked ~ #login{
-    transform: translateY(-500px);
+#account-page > div > div > div > .form-container > form > button {
+    width: 100%;
 }
-#check:checked ~ #login > form > label{
-    transform: scale(1);
+#account-page > div > div > div > .form-container > form > a {
+    font-size: 12px;
 }
-#check:checked ~ #sign-up > form > label{
-    transform: scale(.6);
+#account-page > div > div > div:nth-child(2) > div > form:nth-child(2) {
+    left: -18.75rem;
 }
-
-
-
-
-
-
+#account-page > div > div > div:nth-child(2) > div > form:nth-child(3) {
+    left: 0;
+}
+.error-container {
+    height: 1rem;
+}
+.form-error {
+    font-size: 14px;
+    color: red;
+}
 
 
 
@@ -578,38 +563,5 @@ hr {
     }
     #navbarSupportedContent > ul > li:nth-child(n) > a {
         padding: 10px;
-    }
-
-    /* ACCOUNT PAGE */
-    #account-page {
-        margin-top: 15vh;
-    }
-    #sign-up > form > label,
-    #login > form > label
-    {
-        font-size: 2rem;
-    }
-    #sign-up > form > input, 
-    #login > form > input {
-        box-shadow: none;
-        margin: 1.2rem auto;
-        padding: .9rem;
-        width: 15.63rem;
-    }
-}
-@media only screen and (max-height: 740px)
-{
-    /* ACCOUNT PAGE */
-    #sign-up > form > label,
-    #login > form > label
-    {
-        font-size: 2rem;
-    }
-    #sign-up > form > input, 
-    #login > form > input {
-        box-shadow: none;
-        margin: 1.2rem auto;
-        padding: .9rem;
-        width: 15.63rem;
     }
 }

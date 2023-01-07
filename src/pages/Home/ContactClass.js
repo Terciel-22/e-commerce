@@ -31,16 +31,16 @@ class Contact extends Component
 		}
 
 		let fetchRes = fetch("http://localhost:8000/message",options);
-		fetchRes.then(res =>
-        res.json()).then(data => {
-            this.setState({
-                firstName: '',
-                lastName: '',
-                email: '',
-                message: '',
-                serverMessage: data,
-            });
-        })
+		fetchRes.then(res => res.json())
+                .then(data => {
+                    this.setState({
+                        firstName: '',
+                        lastName: '',
+                        email: '',
+                        message: '',
+                        serverMessage: data,
+                    });
+                })
 
     }
 

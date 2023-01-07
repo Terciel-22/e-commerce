@@ -7,7 +7,7 @@ class Navbar extends Component {
     constructor(props){
         super(props)
         this.state = {
-            cartTotalProducts: 0
+            cartTotalProducts: ""
         }
     }
 

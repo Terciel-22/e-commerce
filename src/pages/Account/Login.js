@@ -1,16 +1,57 @@
-import React, { Component } from 'react'
+import { useFormik } from "formik";
+import { loginSchemas } from "../../schemas";
 
-export default class Login extends Component {
-    render() {
-        return (
-            <div id="login">
-                <form>
-                    <label htmlFor="check" aria-hidden="true">Login</label>
-                    <input type="email" name="signUpEmail" id="signUpEmail" placeholder="Email" className="form-control" required/>
-                    <input type="password" name="signUpPassword" id="signUpPassword" placeholder="Password" className="form-control" required/>
-                    <button>Login</button>
-                </form>
-            </div>
-        )
-    }
+const Login = () => {
+
+    const initialValues = {
+        loginEmail: "",
+        loginPassword: "",
+    };
+
+    const {values, handleChange, handleBlur, handleSubmit, errors, touched} = useFormik({
+        initialValues,
+        validationSchema: loginSchemas,
+        onSubmit: (values,actions)=>
+        {
+            console.log(values);
+            actions.resetForm();
+        }
+    });
+
+    return (
+        <form onSubmit={handleSubmit}>
+            {errors.loginEmail && touched.loginEmail &&(
+                <div className="error-container">
+                    <p className="form-error">{errors.loginEmail}</p>
+                </div>
+            )}
+            <input 
+                type="email" 
+                name="loginEmail" 
+                placeholder="Email" 
+                className="form-control" 
+                value={values.signEmail}
+                onBlur={handleBlur}
+                onChange={handleChange} 
+            />
+            {errors.loginPassword && touched.loginPassword &&(
+                <div className="error-container">
+                    <p className="form-error">{errors.loginPassword}</p>
+                </div>
+            )}
+            <input 
+                type="password" 
+                name="loginPassword" 
+                placeholder="Password" 
+                className="form-control" 
+                value={values.loginPassword}
+                onBlur={handleBlur}
+                onChange={handleChange} 
+            />
+            <button type="submit">Login</button>
+            <a href="/forgotPassword">Forgot Password?</a>
+        </form>
+    );
 }
+
+export default Login
