@@ -30,7 +30,7 @@ const Account = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-6 col-md-12 col-12">
-                            <h1 className="text-center">Connect with us</h1>
+                            <h1 className="">Connect with us</h1>
                         </div>
                         <div className="col-lg-6 col-md-12 col-12">
                             <div className="form-container">

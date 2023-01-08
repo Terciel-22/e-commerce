@@ -62,3 +62,16 @@ app.post(
         });
     },
 );
+
+app.get(
+    "/checkemail",
+    (req, res) => {
+        const {email} = req.query;
+        const q = "SELECT * FROM users WHERE email = ?";
+        const values = [email];
+        db.query(q,[values],(err,data)=>{
+            if(err) return res.json(err)
+            return res.json(data);
+        });
+    },
+);

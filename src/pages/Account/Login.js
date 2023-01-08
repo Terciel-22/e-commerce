@@ -1,4 +1,4 @@
-import { useFormik } from "formik";
+import { Formik, Form, Field } from "formik";
 import { loginSchemas } from "../../schemas";
 
 const Login = () => {
@@ -8,49 +8,49 @@ const Login = () => {
         loginPassword: "",
     };
 
-    const {values, handleChange, handleBlur, handleSubmit, errors, touched} = useFormik({
-        initialValues,
-        validationSchema: loginSchemas,
-        onSubmit: (values,actions)=>
-        {
-            console.log(values);
-            actions.resetForm();
-        }
-    });
+    const onSubmit = (values,actions)=>
+    {
+        console.log(values);
+        actions.resetForm();
+    }
 
     return (
-        <form onSubmit={handleSubmit}>
-            {errors.loginEmail && touched.loginEmail &&(
-                <div className="error-container">
-                    <p className="form-error">{errors.loginEmail}</p>
-                </div>
+        <Formik
+            initialValues={initialValues}
+            validationSchema={loginSchemas}
+            onSubmit={onSubmit}
+        >
+            {({errors, touched})=>(
+                <Form>
+                    <Field
+                        type="email"
+                        name="loginEmail"
+                        placeholder="Email"
+                        className="form-control"
+                    />
+                    {errors.loginEmail && touched.loginEmail &&(
+                        <div className="error-container">
+                            <p className="form-error">{errors.loginEmail}</p>
+                        </div>
+                    )}
+                
+                    <Field
+                        type="password"
+                        name="loginPassword"
+                        placeholder="Password"
+                        className="form-control"
+                    />
+                    {errors.loginPassword && touched.loginPassword &&(
+                        <div className="error-container">
+                            <p className="form-error">{errors.loginPassword}</p>
+                        </div>
+                    )}
+                    
+                    <button type="submit">Login</button>
+                    <a href="/forgotPassword">Forgot Password?</a>
+                </Form>
             )}
-            <input 
-                type="email" 
-                name="loginEmail" 
-                placeholder="Email" 
-                className="form-control" 
-                value={values.signEmail}
-                onBlur={handleBlur}
-                onChange={handleChange} 
-            />
-            {errors.loginPassword && touched.loginPassword &&(
-                <div className="error-container">
-                    <p className="form-error">{errors.loginPassword}</p>
-                </div>
-            )}
-            <input 
-                type="password" 
-                name="loginPassword" 
-                placeholder="Password" 
-                className="form-control" 
-                value={values.loginPassword}
-                onBlur={handleBlur}
-                onChange={handleChange} 
-            />
-            <button type="submit">Login</button>
-            <a href="/forgotPassword">Forgot Password?</a>
-        </form>
+        </Formik>
     );
 }
 
