@@ -58,7 +58,19 @@ app.post(
         ];
         db.query(q,[values],(err,data)=>{
             if(err) return res.json(err)
-            else return res.json("Successfully posted!");
+            else return res.json("Successfully registered.");
+        });
+    },
+);
+
+app.post(
+    "/login",
+    (req, res) => {
+        const {loginEmail,loginPassword} = req.body;
+        const q = "SELECT * FROM users WHERE email = ? AND password = ?";
+        db.query(q,[loginEmail,md5(loginPassword)],(err,data)=>{
+            if(err) return res.json(err)
+            else return res.json(data);
         });
     },
 );

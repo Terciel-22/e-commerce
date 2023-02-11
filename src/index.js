@@ -8,6 +8,7 @@ import Shop from "./pages/Shop/Shop";
 import Blog from "./pages/Blog/Blog";
 import Cart from "./pages/Cart/Cart";
 import Account from "./pages/Account/Account";
+import { AuthProvider } from "./context/AuthProvider";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -15,14 +16,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={ <App /> } />
-                <Route path="/shop" element={ <Shop /> } />
-                <Route path="/blog" element={ <Blog /> } />
-                <Route path="/cart" element={ <Cart />} />
-                <Route path="/register" element={ <Account />} />
-            </Routes>
-        </BrowserRouter>
+        <AuthProvider>
+             <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={ <App /> } />
+                    <Route path="/shop" element={ <Shop /> } />
+                    <Route path="/blog" element={ <Blog /> } />
+                    <Route path="/cart" element={ <Cart />} />
+                    <Route path="/register" element={ <Account />} />
+                </Routes>
+            </BrowserRouter>
+        </AuthProvider>
     </React.StrictMode>
 );

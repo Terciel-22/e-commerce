@@ -24,7 +24,7 @@ const SignUp = () => {
         let response = await fetch("http://localhost:8000/signup",options);
         let data = await response.json();
 
-        console.log(data);
+        alert(data);
         actions.resetForm();
     }
 

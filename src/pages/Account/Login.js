@@ -1,16 +1,36 @@
+import { useContext } from "react";
 import { Formik, Form, Field } from "formik";
 import { loginSchemas } from "../../schemas";
+import AuthContext from "../../context/AuthProvider";
 
 const Login = () => {
+
+    const {setAuth} = useContext(AuthContext);
 
     const initialValues = {
         loginEmail: "",
         loginPassword: "",
     };
 
-    const onSubmit = (values,actions)=>
+    const onSubmit = async (values,actions) =>
     {
-        console.log(values);
+        let options = {
+			method: 'POST',
+			headers: {
+				'Content-Type':
+				'application/json;charset=utf-8'
+			},
+			body: JSON.stringify(values)
+		}
+        
+        let response = await fetch("http://localhost:8000/login",options);
+        let data = await response.json();
+        
+        if(data[0]?.email === values.loginEmail)
+        {
+            setAuth({data})
+        }
+        
         actions.resetForm();
     }
 
