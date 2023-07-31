@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingBag, faCartShopping, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingBag, faBars } from "@fortawesome/free-solid-svg-icons";
 
 class Navbar extends Component {
     constructor(props) {

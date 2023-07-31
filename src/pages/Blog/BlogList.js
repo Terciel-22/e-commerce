@@ -3,30 +3,27 @@ import Post from './Post';
 
 
 class BlogList extends Component {
-    constructor(props)
-    {
+    constructor(props) {
         super(props);
         this.state = {
             isLoaded: false,
             posts: {}
         };
     }
-    componentDidMount()
-    {
-        fetch("https://newsapi.org/v2/top-headlines?country=ph&apiKey=0a04951bac8548108b54fd116d559bd0")
+    componentDidMount() {
+        fetch("https://dummyjson.com/posts?limit=10")
             .then(res => res.json())
             .then(res => {
                 this.setState({
                     isLoaded: true,
-                    posts: res.articles
+                    posts: res.posts
                 });
             });
     }
 
     render() {
-        const {isLoaded, posts} = this.state;
-        if(!isLoaded)
-        {
+        const { isLoaded, posts } = this.state;
+        if (!isLoaded) {
             return (
                 <section id="blog-container" className="container pt-5">
                     Loading...
