@@ -10,31 +10,30 @@ const SignUp = () => {
         signUpCPassword: "",
     };
 
-    const onSubmit = async (values,actions) =>
-    {
-        let options = {
-			method: 'POST',
-			headers: {
-				'Content-Type':
-				'application/json;charset=utf-8'
-			},
-			body: JSON.stringify(values)
-		}
-        
-        let response = await fetch("http://localhost:8000/signup",options);
-        let data = await response.json();
+    const onSubmit = async (values, actions) => {
+        // let options = {
+        // 	method: 'POST',
+        // 	headers: {
+        // 		'Content-Type':
+        // 		'application/json;charset=utf-8'
+        // 	},
+        // 	body: JSON.stringify(values)
+        // }
 
-        alert(data);
-        actions.resetForm();
+        // let response = await fetch("http://localhost:8000/signup",options);
+        // let data = await response.json();
+
+        // alert(data);
+        // actions.resetForm();
     }
 
     return (
-        <Formik 
-            initialValues={initialValues} 
-            validationSchema={signUpSchemas} 
+        <Formik
+            initialValues={initialValues}
+            validationSchema={signUpSchemas}
             onSubmit={onSubmit}
         >
-            {({errors, touched}) => (
+            {({ errors, touched }) => (
                 <Form>
                     <Field
                         type="text"
@@ -44,7 +43,7 @@ const SignUp = () => {
                     />
                     {errors.signUpUsername && touched.signUpUsername && (
                         <div className="error-container">
-                            <p className="form-error">{errors.signUpUsername }</p>
+                            <p className="form-error">{errors.signUpUsername}</p>
                         </div>
                     )}
 

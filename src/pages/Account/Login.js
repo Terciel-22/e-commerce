@@ -5,33 +5,32 @@ import AuthContext from "../../context/AuthProvider";
 
 const Login = () => {
 
-    const {setAuth} = useContext(AuthContext);
+    const { setAuth } = useContext(AuthContext);
 
     const initialValues = {
         loginEmail: "",
         loginPassword: "",
     };
 
-    const onSubmit = async (values,actions) =>
-    {
-        let options = {
-			method: 'POST',
-			headers: {
-				'Content-Type':
-				'application/json;charset=utf-8'
-			},
-			body: JSON.stringify(values)
-		}
-        
-        let response = await fetch("http://localhost:8000/login",options);
-        let data = await response.json();
-        
-        if(data[0]?.email === values.loginEmail)
-        {
-            setAuth({data})
-        }
-        
-        actions.resetForm();
+    const onSubmit = async (values, actions) => {
+        // let options = {
+        // 	method: 'POST',
+        // 	headers: {
+        // 		'Content-Type':
+        // 		'application/json;charset=utf-8'
+        // 	},
+        // 	body: JSON.stringify(values)
+        // }
+
+        // let response = await fetch("http://localhost:8000/login",options);
+        // let data = await response.json();
+
+        // if(data[0]?.email === values.loginEmail)
+        // {
+        //     setAuth({data})
+        // }
+
+        // actions.resetForm();
     }
 
     return (
@@ -40,7 +39,7 @@ const Login = () => {
             validationSchema={loginSchemas}
             onSubmit={onSubmit}
         >
-            {({errors, touched})=>(
+            {({ errors, touched }) => (
                 <Form>
                     <Field
                         type="email"
@@ -48,26 +47,26 @@ const Login = () => {
                         placeholder="Email"
                         className="form-control"
                     />
-                    {errors.loginEmail && touched.loginEmail &&(
+                    {errors.loginEmail && touched.loginEmail && (
                         <div className="error-container">
                             <p className="form-error">{errors.loginEmail}</p>
                         </div>
                     )}
-                
+
                     <Field
                         type="password"
                         name="loginPassword"
                         placeholder="Password"
                         className="form-control"
                     />
-                    {errors.loginPassword && touched.loginPassword &&(
+                    {errors.loginPassword && touched.loginPassword && (
                         <div className="error-container">
                             <p className="form-error">{errors.loginPassword}</p>
                         </div>
                     )}
-                    
+
                     <button type="submit">Login</button>
-                    <a href="/forgotPassword">Forgot Password?</a>
+                    <a href="#" className="text-decoration-none">Forgot Password?</a>
                 </Form>
             )}
         </Formik>
