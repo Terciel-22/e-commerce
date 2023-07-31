@@ -624,6 +624,15 @@ hr {
 /* MOBILE */
 @media only screen and (max-width: 991px) {
 
+    #home {
+        background-position: top 0px right -60px;
+    }
+
+    /* BANNER */
+    #banner {
+        background-position: top 80px right -280px;
+    }
+
     /* NAVIGATION  */
     #root>nav>div>button:hover,
     #root>nav>div>button:focus {
