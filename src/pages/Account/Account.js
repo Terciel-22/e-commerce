@@ -26,7 +26,7 @@ const Account = () => {
 
             <section id="account-page" className="pt-5 mt-5 container">
                 <div className="row mb-3 align-items-center pt-5">
-                    <div className="col-lg-6 col-md-12 col-12">
+                    <div className="col-lg-6 col-md-6 col-12">
                         <h2 className="font-weight-bold">Join us</h2>
                         <hr />
                         <p>We are excited to invite you to become a member of Your E-commerce Store - your one-stop destination for all your shopping needs!</p>
@@ -39,7 +39,7 @@ const Account = () => {
                             <li>24/7 customer support to assist you with any inquiries or issues.</li>
                         </ul>
                     </div>
-                    <div className="col-lg-6 col-md-12 col-12">
+                    <div className="col-lg-6 col-md-6 col-12">
                         <div className="form-container">
                             <div className="form-btn">
                                 <span onClick={handleClick}>Login</span>
