@@ -25,7 +25,7 @@ class Navbar extends Component {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
                 <div className="container">
-                    <a className="navbar-brand" href="/home">
+                    <a className="navbar-brand" href="/">
                         <FontAwesomeIcon icon={faShoppingBag} className="me-2" />
                         {this.props.appName}
                     </a>
