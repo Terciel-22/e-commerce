@@ -21,7 +21,7 @@ class ShopProducts extends Component{
 
     componentDidMount()
     {
-        fetch("https://dummyjson.com/products?limit=100")
+        fetch("https://dummyjson.com/products?limit=24")
             .then(res => res.json())
             .then(res => {
                 this.setState({
